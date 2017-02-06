@@ -1,7 +1,7 @@
 package com.jamxin.security.server.service.impl;
 
-import com.jamxin.security.server.dao.impl.UserDaoImpl;
 import com.jamxin.security.server.domain.User;
+import com.jamxin.security.server.mapper.UserMapper;
 import com.jamxin.security.server.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService{
 
     @Autowired
-    private UserDaoImpl userDao;
+    private UserMapper userDao;
 
     @Override
     public List<User> findUsersByParam(int page,int size) {

@@ -2,8 +2,8 @@ package com.security.dao;
 
 import com.github.pagehelper.PageHelper;
 import com.jamxin.security.server.Application;
-import com.jamxin.security.server.dao.impl.UserDaoImpl;
 import com.jamxin.security.server.domain.User;
+import com.jamxin.security.server.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +24,12 @@ import java.util.List;
 public class UserDaoTest {
 
     @Autowired
-    private UserDaoImpl userDao;
+    private UserMapper userMapper;
 
     @Test
     public void testFindList(){
-        PageHelper.offsetPage(1,1);
-        List<User> userList = userDao.findUserPage();
+        PageHelper.startPage(2,3);
+        List<User> userList = userMapper.selectAll();
 
         for (User user:userList) {
             System.out.println(user.getNickname());

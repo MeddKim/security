@@ -1,9 +1,11 @@
 package com.jamxin.security.server.domain;
 
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Table(name = "jx_user")
 public class User implements Serializable {
     private Long id;
 

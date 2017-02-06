@@ -2,9 +2,9 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!--<mappers>-->
+    <!--<mapper>-->
         <!--<mapper resource="mybatis/mapper/UserMapper.xml"/>-->
-    <!--</mappers>-->
+    <!--</mapper>-->
 
     <properties>
         <property name="dialect" value="mysql" />
@@ -35,8 +35,9 @@
         typeAliases?, typeHandlers?,
         objectFactory?,objectWrapperFactory?,
         plugins?,
-        environments?, databaseIdProvider?, mappers?
+        environments?, databaseIdProvider?, mapper?
     -->
+    <!--
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper">
             <property name="dialect" value="mysql" />
@@ -46,5 +47,5 @@
             <property name="reasonable" value="true" />
         </plugin>
     </plugins>
-
+    -->
 </configuration>
