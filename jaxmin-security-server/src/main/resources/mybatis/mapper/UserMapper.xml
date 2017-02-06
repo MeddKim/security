@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jamxin.security.server.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.jamxin.security.server.domain.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="contact_person" jdbcType="VARCHAR" property="contactPerson" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="points" jdbcType="DECIMAL" property="points" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="head_pic_url" jdbcType="VARCHAR" property="headPicUrl" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="user_province" jdbcType="VARCHAR" property="userProvince" />
+    <result column="user_city" jdbcType="VARCHAR" property="userCity" />
+    <result column="user_region" jdbcType="VARCHAR" property="userRegion" />
+    <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="check_user_id" jdbcType="BIGINT" property="checkUserId" />
+    <result column="identity_card_name" jdbcType="VARCHAR" property="identityCardName" />
+    <result column="is_certification" jdbcType="INTEGER" property="isCertification" />
+    <result column="is_available" jdbcType="INTEGER" property="isAvailable" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="version_no" jdbcType="INTEGER" property="versionNo" />
+    <result column="create_userid" jdbcType="BIGINT" property="createUserid" />
+    <result column="create_username" jdbcType="VARCHAR" property="createUsername" />
+    <result column="create_userip" jdbcType="VARCHAR" property="createUserip" />
+    <result column="create_usermac" jdbcType="VARCHAR" property="createUsermac" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_time_db" jdbcType="TIMESTAMP" property="createTimeDb" />
+    <result column="server_ip" jdbcType="VARCHAR" property="serverIp" />
+    <result column="update_userid" jdbcType="BIGINT" property="updateUserid" />
+    <result column="update_username" jdbcType="VARCHAR" property="updateUsername" />
+    <result column="update_userip" jdbcType="VARCHAR" property="updateUserip" />
+    <result column="update_usermac" jdbcType="VARCHAR" property="updateUsermac" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_time_db" jdbcType="TIMESTAMP" property="updateTimeDb" />
+    <result column="client_versionno" jdbcType="VARCHAR" property="clientVersionno" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, type, username, password, nickname, company_id, company_name, contact_person, 
+    mobile, telephone, email, address, status, remarks, points, sex, head_pic_url, birthday, 
+    user_province, user_city, user_region, user_address, check_time, check_user_id, identity_card_name, 
+    is_certification, is_available, is_deleted, version_no, create_userid, create_username, 
+    create_userip, create_usermac, create_time, create_time_db, server_ip, update_userid, 
+    update_username, update_userip, update_usermac, update_time, update_time_db, client_versionno
+  </sql>
+  <!-- manual start -->
+  <select id="selectUserList" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM jx_user
+  </select>
+
+  <!--自动生成 start -->
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jx_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from jx_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jamxin.security.server.domain.User">
+    insert into jx_user (id, type, username, 
+      password, nickname, company_id, 
+      company_name, contact_person, mobile, 
+      telephone, email, address, 
+      status, remarks, points, 
+      sex, head_pic_url, birthday, 
+      user_province, user_city, user_region, 
+      user_address, check_time, check_user_id, 
+      identity_card_name, is_certification, is_available, 
+      is_deleted, version_no, create_userid, 
+      create_username, create_userip, create_usermac, 
+      create_time, create_time_db, server_ip, 
+      update_userid, update_username, update_userip, 
+      update_usermac, update_time, update_time_db, 
+      client_versionno)
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{companyId,jdbcType=BIGINT}, 
+      #{companyName,jdbcType=VARCHAR}, #{contactPerson,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{points,jdbcType=DECIMAL}, 
+      #{sex,jdbcType=INTEGER}, #{headPicUrl,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{userProvince,jdbcType=VARCHAR}, #{userCity,jdbcType=VARCHAR}, #{userRegion,jdbcType=VARCHAR}, 
+      #{userAddress,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{checkUserId,jdbcType=BIGINT}, 
+      #{identityCardName,jdbcType=VARCHAR}, #{isCertification,jdbcType=INTEGER}, #{isAvailable,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=INTEGER}, #{versionNo,jdbcType=INTEGER}, #{createUserid,jdbcType=BIGINT}, 
+      #{createUsername,jdbcType=VARCHAR}, #{createUserip,jdbcType=VARCHAR}, #{createUsermac,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createTimeDb,jdbcType=TIMESTAMP}, #{serverIp,jdbcType=VARCHAR}, 
+      #{updateUserid,jdbcType=BIGINT}, #{updateUsername,jdbcType=VARCHAR}, #{updateUserip,jdbcType=VARCHAR}, 
+      #{updateUsermac,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateTimeDb,jdbcType=TIMESTAMP}, 
+      #{clientVersionno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jamxin.security.server.domain.User">
+    insert into jx_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="contactPerson != null">
+        contact_person,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="points != null">
+        points,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="headPicUrl != null">
+        head_pic_url,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="userProvince != null">
+        user_province,
+      </if>
+      <if test="userCity != null">
+        user_city,
+      </if>
+      <if test="userRegion != null">
+        user_region,
+      </if>
+      <if test="userAddress != null">
+        user_address,
+      </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="checkUserId != null">
+        check_user_id,
+      </if>
+      <if test="identityCardName != null">
+        identity_card_name,
+      </if>
+      <if test="isCertification != null">
+        is_certification,
+      </if>
+      <if test="isAvailable != null">
+        is_available,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="versionNo != null">
+        version_no,
+      </if>
+      <if test="createUserid != null">
+        create_userid,
+      </if>
+      <if test="createUsername != null">
+        create_username,
+      </if>
+      <if test="createUserip != null">
+        create_userip,
+      </if>
+      <if test="createUsermac != null">
+        create_usermac,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createTimeDb != null">
+        create_time_db,
+      </if>
+      <if test="serverIp != null">
+        server_ip,
+      </if>
+      <if test="updateUserid != null">
+        update_userid,
+      </if>
+      <if test="updateUsername != null">
+        update_username,
+      </if>
+      <if test="updateUserip != null">
+        update_userip,
+      </if>
+      <if test="updateUsermac != null">
+        update_usermac,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateTimeDb != null">
+        update_time_db,
+      </if>
+      <if test="clientVersionno != null">
+        client_versionno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=BIGINT},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPerson != null">
+        #{contactPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null">
+        #{points,jdbcType=DECIMAL},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="headPicUrl != null">
+        #{headPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userProvince != null">
+        #{userProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="userCity != null">
+        #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegion != null">
+        #{userRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUserId != null">
+        #{checkUserId,jdbcType=BIGINT},
+      </if>
+      <if test="identityCardName != null">
+        #{identityCardName,jdbcType=VARCHAR},
+      </if>
+      <if test="isCertification != null">
+        #{isCertification,jdbcType=INTEGER},
+      </if>
+      <if test="isAvailable != null">
+        #{isAvailable,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="versionNo != null">
+        #{versionNo,jdbcType=INTEGER},
+      </if>
+      <if test="createUserid != null">
+        #{createUserid,jdbcType=BIGINT},
+      </if>
+      <if test="createUsername != null">
+        #{createUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserip != null">
+        #{createUserip,jdbcType=VARCHAR},
+      </if>
+      <if test="createUsermac != null">
+        #{createUsermac,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTimeDb != null">
+        #{createTimeDb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverIp != null">
+        #{serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserid != null">
+        #{updateUserid,jdbcType=BIGINT},
+      </if>
+      <if test="updateUsername != null">
+        #{updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserip != null">
+        #{updateUserip,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUsermac != null">
+        #{updateUsermac,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTimeDb != null">
+        #{updateTimeDb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clientVersionno != null">
+        #{clientVersionno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jamxin.security.server.domain.User">
+    update jx_user
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=BIGINT},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPerson != null">
+        contact_person = #{contactPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null">
+        points = #{points,jdbcType=DECIMAL},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="headPicUrl != null">
+        head_pic_url = #{headPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userProvince != null">
+        user_province = #{userProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="userCity != null">
+        user_city = #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegion != null">
+        user_region = #{userRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        user_address = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUserId != null">
+        check_user_id = #{checkUserId,jdbcType=BIGINT},
+      </if>
+      <if test="identityCardName != null">
+        identity_card_name = #{identityCardName,jdbcType=VARCHAR},
+      </if>
+      <if test="isCertification != null">
+        is_certification = #{isCertification,jdbcType=INTEGER},
+      </if>
+      <if test="isAvailable != null">
+        is_available = #{isAvailable,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+      <if test="versionNo != null">
+        version_no = #{versionNo,jdbcType=INTEGER},
+      </if>
+      <if test="createUserid != null">
+        create_userid = #{createUserid,jdbcType=BIGINT},
+      </if>
+      <if test="createUsername != null">
+        create_username = #{createUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserip != null">
+        create_userip = #{createUserip,jdbcType=VARCHAR},
+      </if>
+      <if test="createUsermac != null">
+        create_usermac = #{createUsermac,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTimeDb != null">
+        create_time_db = #{createTimeDb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverIp != null">
+        server_ip = #{serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserid != null">
+        update_userid = #{updateUserid,jdbcType=BIGINT},
+      </if>
+      <if test="updateUsername != null">
+        update_username = #{updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserip != null">
+        update_userip = #{updateUserip,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUsermac != null">
+        update_usermac = #{updateUsermac,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTimeDb != null">
+        update_time_db = #{updateTimeDb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clientVersionno != null">
+        client_versionno = #{clientVersionno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jamxin.security.server.domain.User">
+    update jx_user
+    set type = #{type,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=BIGINT},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      contact_person = #{contactPerson,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      points = #{points,jdbcType=DECIMAL},
+      sex = #{sex,jdbcType=INTEGER},
+      head_pic_url = #{headPicUrl,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      user_province = #{userProvince,jdbcType=VARCHAR},
+      user_city = #{userCity,jdbcType=VARCHAR},
+      user_region = #{userRegion,jdbcType=VARCHAR},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      check_user_id = #{checkUserId,jdbcType=BIGINT},
+      identity_card_name = #{identityCardName,jdbcType=VARCHAR},
+      is_certification = #{isCertification,jdbcType=INTEGER},
+      is_available = #{isAvailable,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      version_no = #{versionNo,jdbcType=INTEGER},
+      create_userid = #{createUserid,jdbcType=BIGINT},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      create_userip = #{createUserip,jdbcType=VARCHAR},
+      create_usermac = #{createUsermac,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_time_db = #{createTimeDb,jdbcType=TIMESTAMP},
+      server_ip = #{serverIp,jdbcType=VARCHAR},
+      update_userid = #{updateUserid,jdbcType=BIGINT},
+      update_username = #{updateUsername,jdbcType=VARCHAR},
+      update_userip = #{updateUserip,jdbcType=VARCHAR},
+      update_usermac = #{updateUsermac,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_time_db = #{updateTimeDb,jdbcType=TIMESTAMP},
+      client_versionno = #{clientVersionno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <cache />
+</mapper>
