@@ -16,4 +16,5 @@ public interface AccountService {
      * @return
      */
     List<User> findUsersByParam(int page,int size);
+
 }

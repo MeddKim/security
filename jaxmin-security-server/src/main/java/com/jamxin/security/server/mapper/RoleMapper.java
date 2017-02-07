@@ -1,12 +1,13 @@
 package com.jamxin.security.server.mapper;
 
-import com.jamxin.security.server.domain.User;
+import com.jamxin.security.server.domain.Role;
 import com.jamxin.security.server.utils.BaseMapper;
 
 /**
  * @author: Administrator
- * @date : 2017/2/6 0006
+ * @date : 2017/2/7 0007
  * @Description:
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface RoleMapper extends BaseMapper<Role> {
+
 }

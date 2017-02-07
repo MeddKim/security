@@ -1,8 +1,10 @@
 package com.jamxin.security.server.domain;
 
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Table(name = "jx_role")
 public class Role implements Serializable {
     private Long id;
 

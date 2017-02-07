@@ -1,5 +1,6 @@
 package com.jamxin.security.server.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.jamxin.security.server.domain.User;
 import com.jamxin.security.server.mapper.UserMapper;
 import com.jamxin.security.server.service.AccountService;
@@ -21,9 +22,7 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public List<User> findUsersByParam(int page,int size) {
-
-
-
-        return null;
+        PageHelper.startPage(page,size);
+        return userDao.selectAll();
     }
 }
