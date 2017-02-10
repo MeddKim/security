@@ -2,6 +2,7 @@ package com.jamxin.security.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+//import org.springframework.web.servlet.CustomDispatcherServlet;
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class DispatcherServletConfig {
 //    @Bean(name="dispatcherServlet")
 //    public DispatcherServlet dispatcherServlet(){
-//        //return new CustomDispatcherServlet();
-//        return new DispatcherServlet();
+//        return new CustomDispatcherServlet();
 //    }
 }

@@ -78,11 +78,21 @@
             <version>7.0</version>
         </dependency>
         <!--<dependency>-->
+            <!--<groupId>com.jamxin</groupId>-->
+            <!--<artifactId>jamxin-framework</artifactId>-->
+            <!--<version>0.1.1-SNAPSHOT</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
             <!--<groupId>com.jfinal</groupId>-->
             <!--<artifactId>jfinal</artifactId>-->
             <!--<version>2.2</version>-->
         <!--</dependency>-->
 
+        <dependency>
+            <groupId>org.apache.bcel</groupId>
+            <artifactId>bcel</artifactId>
+            <version>6.0</version>
+        </dependency>
 
     </dependencies>
 

@@ -57,14 +57,20 @@ public class UserDaoTest {
 
     @Test
     public void testInsert(){
-        Role role = new Role();
-        role.setType(2L);
-        role.setProductType(2);
-        role.setName("数据管理员");
-
-        role.setCompanyId(2L);
-        int record = roleMapper.insert(role);
-        System.out.println(record);
+//        Role role = new Role();
+//        role.setType(2L);
+//        role.setProductType(2);
+//        role.setName("数据管理员");
+//
+//        role.setCompanyId(2L);
+//        int record = roleMapper.insert(role);
+        User user = new User();
+        user.setType(2);
+        user.setUsername("张三");
+        user.setCompanyId(1L);
+        user.setNickname("Meddkim");
+        user.setPassword("123");
+        userMapper.addUser(user);
     }
 
 }
